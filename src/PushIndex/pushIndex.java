@@ -11,21 +11,15 @@ public class pushIndex {
         int number = scanner.nextInt();
         System.out.println("Nhập vào vị trí cần push");
         int index = scanner.nextInt();
-        int newArray[]=new int[arr.length];
-        System.out.println("array : "+Arrays.toString(arr));
-        if (index <=-1 && index >= arr.length - 1) {
-            System.out.println("Không chèn đc phần tử");
-            System.out.println("vui lòng nhập lại vị trí cần chèn");
-            index= scanner.nextInt();
+        int newArray[] = new int[arr.length + 1];
+        System.out.println("array : " + Arrays.toString(arr));
+        for (int i = index + 1; i < newArray.length; i++) {
+            newArray[i] = arr[i - 1];
         }
-        for (int i = 0; i < arr.length; i++) {
-            if (index==i){
-                arr[i]=number;
-            }
+        for (int i = 0; i < index; i++) {
+            newArray[i] = arr[i];
         }
-        for (int i = 0; i < arr.length ; i++) {
-            newArray[i]=arr[i];
-        }
-        System.out.println("mảng mới là: "+ Arrays.toString(newArray));
+        newArray[index] = number;
+        System.out.println("mảng mối là:" + Arrays.toString(newArray));
     }
 }
